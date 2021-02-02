@@ -8,6 +8,7 @@
 	rel="stylesheet"
 	integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
 	crossorigin="anonymous">
+	<div class="container">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<div class="container-fluid">
 		<a class="navbar-brand" href="#">MyBank</a>
@@ -38,12 +39,9 @@
 	</div>
 </nav>
 
-
-
 </head>
 <body>
-	<div class="container"></div>
-	Olá,
+	<div>Olá,
 	<span th:text="${cliente.nome}"></span>
 	</div>
 
@@ -55,6 +53,22 @@
 	<div>
 		e a Conta <span th:text="${conta.tipoConta +  ':' + conta.numero}"></span>
 	</div>
-	</div>
+	
+<!-- 	<div th:text="${movimentacao.userPagador + ' pagou ' + movimentacao.userRecebedor}"></div> -->
+<!-- 	<div th:text="${movimentacao.descricao}"></div> -->
+<!-- 	<div th:text="${movimentacao.valor}"></div> -->
+<!-- 	<div th:text="${movimentacao.data}"></div> -->
+	
+<!-- 	</div> -->
+	
+	<div class="card border-success mb-3" style="max-width: 18rem;" th:each="movimentacao : ${movimentacoes}">
+  <div class="card-header bg-transparent border-success" th:text="${movimentacao.userPagador}"></div>
+  <div class="card-body text-success">
+    <h5 class="card-title" th:text="${movimentacao.userPagador + ' pagou R$' + movimentacao.valor + ' para ' + movimentacao.userRecebedor}"></h5>
+    <p class="card-text" th:text="${movimentacao.descricao}"></p>
+  </div>
+  <div class="card-footer bg-transparent border-success" th:text="${movimentacao.data}"></div>
+</div>
+	
 </body>
 </html>
