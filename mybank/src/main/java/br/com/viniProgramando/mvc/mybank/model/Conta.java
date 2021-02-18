@@ -17,7 +17,8 @@ public class Conta {
 	
     private double saldo;
     private int agencia;
-    private int numero;
+
+	private int numero;
     @JoinColumn(unique=true)
     @OneToOne
     private Cliente titular;
@@ -103,7 +104,9 @@ public class Conta {
 		return tipoConta;
 	}
 
-
+    public Long getId() {
+		return id;
+	}
 //    public static int getTotal(){
 //        return Conta.total;
 //    }

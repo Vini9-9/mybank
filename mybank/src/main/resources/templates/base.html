@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-<!DOCTYPE html>
-<html lang="pt-br">
 <head th:fragment="head">
 <title>MyBank</title>
 <meta charset="utf-8">
@@ -31,41 +28,16 @@
 					</li>
 					<li class="nav-item"><a class="nav-link" href="#">Extrato</a>
 					</li>
+					<div>
+					</div>
 					<li><a href="/pagamento/formulario"><button type="button" class="btn btn-success">Pagar</button></a></li>
-					</ul>
 					<nav class="ms-auto p-2 bd-highlight">
-						<b class="text-dark" sec:authorize="isAuthenticated()" th:text="${'@' + cliente.username}"></b>
-						<a class="text-dark" sec:authorize="!isAuthenticated()" href="/login">Login</a>
-						<a onclick="document.querySelector('#form-login').submit()" class="text-dark" sec:authorize="isAuthenticated()" href="#">Logout</a>
-						<form id="form-login" th:action="@{/logout}" method="post"></form>
+					<li class="nav-item"><b>@<span th:text="${cliente.username}"></span></b>
+					</li>
 					</nav>
+				</ul>
 			</div>
 		</div>
 	</nav>
+	</div>
 </head>
-<body>
-	<div class="saudacao">
-		<div>
-			Olá, <b><span th:text="${cliente.nome}"></span></b>, bem vindo ao MyBank!
-		</div>
-		<div>
-			Sua Agência é: <span th:text="${conta.agencia + ' e a Conta ' + conta.tipoConta +  ': ' + conta.numero}"></span>
-		</div>
-	</div>
-	<br></br>
-	<div class="card border-success mb-3" style="max-width: 40rem;"
-		th:each="movimentacao : ${movimentacoes}">
-		<div class="card-header bg-transparent border-success"
-			th:text="${movimentacao.userPagador}"></div>
-		<div class="card-body text-success">
-			<h5 class="card-title"
-				th:text="${'Você pagou a ' + movimentacao.userRecebedor}"></h5>
-			<p class="card-text"
-				th:text="${movimentacao.categoria + ' - ' + movimentacao.descricao}"></p>
-		</div>
-		<div class="card-footer bg-transparent border-success"
-			th:text="${' R$ ' + #numbers.formatDecimal(movimentacao.valor,1,'POINT',2,'COMMA') + ' | ' + movimentacao.data}"></div>
-	</div>
-	
-</body>
-</html>

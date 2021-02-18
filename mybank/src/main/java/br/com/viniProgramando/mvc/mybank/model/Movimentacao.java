@@ -33,7 +33,7 @@ public class Movimentacao {
 	private LocalDateTime data;
     private String descricao;
     private BigDecimal valor;
-    
+    private String categoria;
     
 	public Conta getContaPagador() {
 		return contaPagador;
@@ -84,6 +84,12 @@ public class Movimentacao {
 	}
 	public void setTipoMovimentacao(TipoMovimentacao tipoMovimentacao) {
 		this.tipoMovimentacao = tipoMovimentacao;
+	}
+	public String getCategoria() {
+		return categoria;
+	}
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
 	}
     
 

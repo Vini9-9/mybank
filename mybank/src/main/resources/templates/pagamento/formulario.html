@@ -1,0 +1,75 @@
+<html>
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+	crossorigin="anonymous">
+	<nav class="navbar navbar-expand navbar-light bg-light">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#">MyBank</a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse d-flex justify-content-between" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="#">Início</a></li>
+					<li class="nav-item"><a class="nav-link" href="#">Carteira</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="#">Notificações</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="#">Extrato</a>
+					</li>
+					<div>
+					</div>
+					<li><a href="/pagamento/formulario"><button type="button" class="btn btn-success">Pagar</button></a></li>
+					<nav class="ms-auto p-2 bd-highlight">
+					<li class="nav-item"><b>@<span th:text="${cliente.username}"></span></b>
+					</li>
+					</nav>
+				</ul>
+			</div>
+		</div>
+	</nav>
+</head>
+<body>
+	<div class="container">
+		<div class="jumbotron mb-0">
+			<h1 class="display-4">Novo Pagamento</h1>
+		</div>
+
+		<form action="/pagamento/usuarios/novo" method="POST">
+			<div>
+				<label for="nomeUsuario">Nome do usuário</label> <input
+					name="nomeUsuario" placeholder="nome do usuário" /> <small>Informa
+					qual o nome do usuário.</small>
+			</div>
+			<div>
+				<label for="valorPagamento">Valor do pagamento</label> <input
+					name="valorPagamento" placeholder="Valor do pagamento" />
+			</div>
+			<div>
+				<label for="categoria">Categoria</label> <input name="categoria"
+					placeholder="Informe a categoria" /> <small>Adicione uma
+					categoria para ajudar na identificação do seu pagamento.</small>
+			</div>
+			<div>
+				<label for="descricao">Descrição</label>
+				<textarea name="descricao"
+					placeholder="Adicione uma descrição para ajudar na identificação do seu pagamento."></textarea>
+			</div>
+			<div>
+				<label for="formaPagamento">Forma de pagamento</label> <input
+					name="formaPagamento" placeholder="Forma de pagamento" />
+			</div>
+			<button type="submit">Pagar</button>
+		</form>
+	</div>
+
+	</div>
+</body>
+</html>
